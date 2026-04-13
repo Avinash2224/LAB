@@ -1,4 +1,5 @@
-name: ML Pipeline
+python3 -c "
+content = '''name: ML Pipeline
 
 on:
   push:
@@ -15,7 +16,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: \"3.10\"
 
       - name: Install dependencies
         run: pip install -r requirements.txt
@@ -41,4 +42,9 @@ jobs:
           name: model-artifacts
 
       - name: Print completion
-        run: echo "Run completed by: Avinash Alash - 2022BCS0021"
+        run: echo \"Run completed by: Avinash Alash - 2022BCS0021\"
+'''
+with open('.github/workflows/ml_pipeline.yml', 'w') as f:
+    f.write(content)
+print('File written successfully')
+"
